@@ -51,10 +51,10 @@ class ApiController extends ControllerBase
             	foreach ($services as $item) {
 
             		$return[] = array(
-            			"id" => $item->id,
+            			"id" => $item->getId(),
             			"name" => utf8_encode($item->getName()),
             			"description" => utf8_encode($item->getDescription()),
-            			"categories" => array()
+            			"image" => $item->getImage()
             		);
             	}
 
