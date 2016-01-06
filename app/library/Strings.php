@@ -29,7 +29,12 @@ class ListString
 			),
 			"params" => array(
 				"wrong" => "Los parámetros son incorrectos"
-			)
+			),
+			"user" => array(
+				"insert_success" => "insert ok",
+				"insert_error" => "Insert error",
+				"not_found" => "User not found"
+			) 
 		);
 	}
 }
