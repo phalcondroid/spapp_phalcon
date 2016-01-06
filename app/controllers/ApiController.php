@@ -38,7 +38,6 @@ class ApiController extends ControllerBase
     	$dataRequest = $this->request->getJsonPost();
     	$fields = array(
     		"key",
-    		"uuid",
     		"platform"
     	);
 
