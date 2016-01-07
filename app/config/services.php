@@ -26,14 +26,34 @@ $di->set('url', function () use ($config) {
 /**
  * Disable render views
  */
-$di->set('view', function() {
+$di->set('view', function() use ($config){
 
     $view = new View();
 
+    $view->setViewsDir($config->application->viewsDir);
+
+    $view->registerEngines(array(
+        '.volt' => function ($view, $di) use ($config) {
+
+            $volt = new VoltEngine($view, $di);
+
+            $volt->setOptions(array(
+                'compiledPath' => $config->application->cacheDir,
+                'compiledSeparator' => '_'
+            ));
+
+            return $volt;
+        },
+        '.phtml' => 'Phalcon\Mvc\View\Engine\Php'
+    ));
+
+
     //Disable several levels
+    /*
     $view->disableLevel(array(
         View::LEVEL_NO_RENDER => true,
     ));
+    */
 
     return $view;
 
