@@ -13,6 +13,12 @@ class Booking extends \Phalcon\Mvc\Model
      *
      * @var integer
      */
+    protected $id_price_table;
+
+    /**
+     *
+     * @var integer
+     */
     protected $id_user;
 
     /**
@@ -54,6 +60,19 @@ class Booking extends \Phalcon\Mvc\Model
     public function setIdBooking($id_booking)
     {
         $this->id_booking = $id_booking;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field id_price_table
+     *
+     * @param integer $id_price_table
+     * @return $this
+     */
+    public function setIdPriceTable($id_price_table)
+    {
+        $this->id_price_table = $id_price_table;
 
         return $this;
     }
@@ -147,6 +166,16 @@ class Booking extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Returns the value of field id_price_table
+     *
+     * @return integer
+     */
+    public function getIdPriceTable()
+    {
+        return $this->id_price_table;
+    }
+
+    /**
      * Returns the value of field id_user
      *
      * @return integer
@@ -204,6 +233,14 @@ class Booking extends \Phalcon\Mvc\Model
     public function getRating()
     {
         return $this->rating;
+    }
+
+    /**
+     * Initialize method for model.
+     */
+    public function initialize()
+    {
+        $this->belongsTo('id_price_table', 'PriceTable', 'id_price_table', array('foreignKey' => true));
     }
 
 }

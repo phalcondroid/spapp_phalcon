@@ -47,14 +47,26 @@ class ApiController extends ControllerBase
 
             	$services = Service::find();
             	$return = array();
+                $categories = array();
 
             	foreach ($services as $item) {
+
+                    $categories = array();
+
+                    foreach ($item->ServiceCategory as $item2) {
+                        $categories[] = array(
+                            "name" => utf8_encode($item2->getName()),
+                            "description" => utf8_encode($item2->getDescription()),
+                            "image" => $item2->getImage()
+                        );
+                    }
 
             		$return[] = array(
             			"id" => $item->getId(),
             			"name" => utf8_encode($item->getName()),
             			"description" => utf8_encode($item->getDescription()),
-            			"image" => $item->getImage()
+            			"image" => $item->getImage(),
+                        "categories" => $categories
             		);
             	}
 

@@ -1,6 +1,6 @@
 <?php
 
-class Service extends \Phalcon\Mvc\Model
+class ServiceCategory extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -8,6 +8,12 @@ class Service extends \Phalcon\Mvc\Model
      * @var integer
      */
     protected $id;
+
+    /**
+     *
+     * @var integer
+     */
+    protected $id_service;
 
     /**
      *
@@ -27,6 +33,8 @@ class Service extends \Phalcon\Mvc\Model
      */
     protected $image;
 
+
+
     /**
      * Method to set the value of field id
      *
@@ -36,6 +44,19 @@ class Service extends \Phalcon\Mvc\Model
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field id_service
+     *
+     * @param integer $id_service
+     * @return $this
+     */
+    public function setIdService($id_service)
+    {
+        $this->id_service = $id_service;
 
         return $this;
     }
@@ -67,12 +88,12 @@ class Service extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field image
+     * Method to set the value of field price
      *
-     * @param string $image
+     * @param string $price
      * @return $this
      */
-    public function setImage($image)
+    public function setPrice($image)
     {
         $this->image = $image;
 
@@ -87,6 +108,16 @@ class Service extends \Phalcon\Mvc\Model
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Returns the value of field id_service
+     *
+     * @return integer
+     */
+    public function getIdService()
+    {
+        return $this->id_service;
     }
 
     /**
@@ -110,7 +141,7 @@ class Service extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field image
+     * Returns the value of field price
      *
      * @return string
      */
@@ -124,7 +155,8 @@ class Service extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->hasMany('id', 'ServiceCategory', 'id_service', NULL);
+        $this->hasMany('id', 'PriceTable', 'id_service_category', NULL);
+        $this->belongsTo('id_service', 'Service', 'id', array('foreignKey' => true));
     }
 
 }
