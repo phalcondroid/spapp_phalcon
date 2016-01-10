@@ -55,9 +55,11 @@ class ApiController extends ControllerBase
 
                     foreach ($item->ServiceCategory as $item2) {
                         $categories[] = array(
+                            "id" => $item->getId(),
                             "name" => utf8_encode($item2->getName()),
                             "description" => utf8_encode($item2->getDescription()),
-                            "image" => $item2->getImage()
+                            "image" => $item2->getImage(),
+                            "video" => $item2->getVideo()
                         );
                     }
 

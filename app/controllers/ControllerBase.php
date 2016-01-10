@@ -11,8 +11,6 @@ use Phalcon\Mvc\Controller;
 class ControllerBase extends Controller
 {
 
-
-
 	const SUCCESS = 200;
     const FAILED = 409;
     const EMPTYFIELD = "*";

@@ -33,7 +33,11 @@ class ServiceCategory extends \Phalcon\Mvc\Model
      */
     protected $image;
 
-
+    /**
+     *
+     * @var string
+     */
+    protected $video;
 
     /**
      * Method to set the value of field id
@@ -101,6 +105,19 @@ class ServiceCategory extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field price
+     *
+     * @param string $price
+     * @return $this
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field id
      *
      * @return integer
@@ -148,6 +165,16 @@ class ServiceCategory extends \Phalcon\Mvc\Model
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Returns the value of field price
+     *
+     * @return string
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
 
     /**
