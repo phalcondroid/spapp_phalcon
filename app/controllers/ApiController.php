@@ -1,27 +1,22 @@
 <?php
 
 /**
- * 
+ *
+ * @author Julián Arturo Molina Castiblanco <b>phalcondroid@gmail.com</b>
+ * @version 1.0 <b>Enero 2016</b>
+ *
  */
 class ApiController extends ControllerBase
 {
 
-	/**
-	 * 
-	 */
-    public function registerdataAction()
-    {
-
-    }
-
     /**
-     * 
+     *
      */
-    public function new_requestAction()
+    public function newrequestAction()
     {
 
     	$this->request->getJsonPost();
-    	
+
     	$data = array(
     		"key_access",
     		"platform"
@@ -30,7 +25,7 @@ class ApiController extends ControllerBase
     }
 
     /**
-     * 
+     *
      */
     public function generalAction()
     {
@@ -89,14 +84,14 @@ class ApiController extends ControllerBase
 
     	$dataRequest = $this->request->getJsonPost();
     	$fields = array(
-    		"key",
-    		"name",
-    		"last_name",
-    		"email",
-    		"image",
-    		"phone",
-    		"uuid",
-    		"platform"
+      	  "key",
+      		"name",
+      		"last_name",
+      		"email",
+      		"image",
+      		"phone",
+      		"uuid",
+      		"platform"
     	);
 
     	if ($this->_checkFields($dataRequest, $fields)) {
@@ -115,7 +110,7 @@ class ApiController extends ControllerBase
                 $user->setFirstConnection($this->_dateTime->format("Y-m-d H:m:s"));
                 $user->setLastConnection($this->_dateTime->format("Y-m-d H:m:s"));
                 $user->setStatus(1);
-                
+
                 if ($user->save()) {
 
                     $this->setJsonResponse(ControllerBase::SUCCESS, ControllerBase::FAILED_MESSAGE, array(
@@ -127,7 +122,7 @@ class ApiController extends ControllerBase
                     ));
 
                 } else {
-                    
+
                     $this->setJsonResponse(ControllerBase::SUCCESS, ControllerBase::FAILED_MESSAGE, array(
                         "status" => $this->strings->getString("http", "error"),
                         "message" => $this->_checkError($user),
