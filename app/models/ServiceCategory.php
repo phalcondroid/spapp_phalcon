@@ -19,13 +19,13 @@ class ServiceCategory extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    protected $name;
+    protected $nombre;
 
     /**
      *
      * @var string
      */
-    protected $description;
+    protected $descripcion;
 
     /**
      *
@@ -73,7 +73,7 @@ class ServiceCategory extends \Phalcon\Mvc\Model
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->nombre = $name;
 
         return $this;
     }
@@ -84,9 +84,9 @@ class ServiceCategory extends \Phalcon\Mvc\Model
      * @param string $description
      * @return $this
      */
-    public function setDescription($description)
+    public function setDescripcion($description)
     {
-        $this->description = $description;
+        $this->descripcion = $description;
 
         return $this;
     }
@@ -144,7 +144,7 @@ class ServiceCategory extends \Phalcon\Mvc\Model
      */
     public function getName()
     {
-        return $this->name;
+        return $this->nombre;
     }
 
     /**
@@ -154,7 +154,7 @@ class ServiceCategory extends \Phalcon\Mvc\Model
      */
     public function getDescription()
     {
-        return $this->description;
+        return $this->descripcion;
     }
 
     /**
