@@ -27,6 +27,27 @@ class ApiController extends ControllerBase
     /**
      *
      */
+    public function quotationAction()
+    {
+        $dataRequest = $this->request->getJsonPost();
+        $fields = array(
+            "key",
+            "time",
+            "service_category_id",
+            "platform"
+        );
+
+        if ($this->_checkFields($dataRequest, $fields)) {
+
+            if ($this->_validKey()) {
+
+            }
+        }
+    }
+
+    /**
+     *
+     */
     public function generalAction()
     {
 
@@ -39,7 +60,6 @@ class ApiController extends ControllerBase
     	if ($this->_checkFields($dataRequest, $fields)) {
 
             if ($this->_validKey()) {
-
             	$services = Service::find();
             	$return = array();
                 $categories = array();
@@ -74,6 +94,7 @@ class ApiController extends ControllerBase
                 ));
             }
         }
+        return $this->response;
     }
 
     /**

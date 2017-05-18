@@ -148,7 +148,7 @@ class ControllerBase extends Controller
 		} else if(strtolower($platform) == "android") {
 			$this->sendAndroidPush();
 		} else if(strtolower($platform) == "web") {
-            
+
             $this->pusher->trigger($this->getUuid(), 'my_event', array(
                 "title" => $this->getTitle(),
                 "body" => $this->getBody(),
